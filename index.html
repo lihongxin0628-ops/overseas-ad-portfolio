@@ -1,0 +1,238 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:,"><title>海外广告作品集 · 个人作品集</title><style>
+    :root {
+      --blue: #0875ed;
+      --blue-dark: #0062ce;
+      --ink: #17263d;
+      --muted: #65758a;
+      --line: #e4eaf2;
+      --pale: #f0f7ff;
+      --white: #fff;
+      --orange: #f29a38;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 26px; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    a, button { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+    [hidden] { display: none !important; }
+    .wrap { width: min(1280px, calc(100% - 96px)); margin-inline: auto; }
+    .skip-link { position: absolute; top: -80px; left: 20px; z-index: 5; padding: 12px 18px; border-radius: 6px; background: var(--blue); color: white; }
+    .skip-link:focus { top: 12px; }
+    .site-header { border-bottom: 1px solid #edf1f6; background: white; }
+    .nav { min-height: 82px; display: flex; align-items: center; gap: 32px; }
+    .wordmark { display: inline-flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; letter-spacing: -.7px; }
+    .brand-icon { width: 30px; height: 30px; color: var(--blue); }
+    .wordmark-dot { color: var(--blue); }
+    .nav-links { margin-left: auto; display: flex; align-items: center; gap: 32px; font-size: 14px; font-weight: 500; }
+    .nav-links a { padding: 12px 0; }
+    .nav-links a:hover { color: var(--blue); }
+    .review-label { border-left: 1px solid var(--line); padding-left: 28px; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .review-label::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 8px; border-radius: 50%; background: var(--orange); vertical-align: 2px; }
+    .hero { background: linear-gradient(110deg, #f6faff 0%, #edf6ff 68%, #eaf3ff 100%); border-bottom: 1px solid #e9f0f9; }
+    .hero-inner { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 60px; padding-block: 58px 61px; }
+    .eyebrow { margin: 0 0 16px; color: var(--blue-dark); font-size: 12px; font-weight: 600; letter-spacing: 1.8px; }
+    h1 { margin: 0; font-size: clamp(36px, 4vw, 56px); font-weight: 700; letter-spacing: -2px; line-height: 1.2; }
+    h1 span { color: var(--blue); }
+    .hero-caption { margin: 15px 0 0; color: #74849b; font-size: 13px; letter-spacing: 2px; }
+    .hero-copy { justify-self: end; padding-left: 38px; border-left: 1px solid #cedff3; }
+    .hero-copy p { margin: 0 0 23px; color: #52657f; font-size: 16px; line-height: 1.9; }
+    .hero-actions { display: flex; align-items: center; gap: 25px; }
+    .primary-link { display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 12px 20px; border-radius: 7px; background: var(--blue); color: white; font-size: 14px; font-weight: 600; transition: background .18s; }
+    .primary-link:hover { background: var(--blue-dark); }
+    .arrow { width: 17px; height: 17px; flex-shrink: 0; }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; color: #3d587a; font-size: 13px; }
+    .text-link:hover { color: var(--blue); }
+    .gallery-section { padding-block: 44px 56px; }
+    .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+    .heading-main { display: flex; align-items: baseline; gap: 15px; }
+    h2 { margin: 0; font-size: 27px; font-weight: 650; letter-spacing: -.8px; }
+    .section-english { color: #7b8ba0; font-size: 13px; letter-spacing: .3px; }
+    .section-note { margin: 0; color: var(--muted); font-size: 12px; }
+    .gallery-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 27px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter { min-height: 40px; padding: 8px 17px; border: 1px solid transparent; border-radius: 6px; background: #f3f6fa; color: #57677f; cursor: pointer; font-size: 13px; font-weight: 600; transition: background .16s, color .16s; }
+    .filter:hover { background: #e5effc; color: var(--blue-dark); }
+    .filter[aria-pressed="true"] { color: white; background: var(--blue); }
+    .filter-count { padding-left: 9px; opacity: .65; font-size: 11px; font-weight: 400; }
+    .result-count { color: #748298; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .video-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 25px 20px; }
+    .video-card { min-width: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: white; transition: border-color .18s, box-shadow .18s; }
+    .video-card:hover { border-color: #aacbf6; box-shadow: 0 7px 22px #0f4f9a0b; }
+    .cover { margin: 0; aspect-ratio: 16 / 9; background: #eaf0f8; overflow: hidden; }
+    .cover img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .card-body { padding: 17px 17px 14px; }
+    .card-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .product { display: inline-flex; align-items: center; gap: 7px; color: var(--blue-dark); font-size: 11px; line-height: 1.5; font-weight: 650; }
+    .product::before { content: ""; width: 4px; height: 4px; border-radius: 1px; background: var(--blue); }
+    .pending { padding: 1px 6px; border: 1px solid #f0dfc7; border-radius: 3px; background: #fffaf2; color: #956125; font-size: 10px; line-height: 1.6; font-weight: 500; white-space: nowrap; }
+    h3 { margin: 0; color: #22314a; font-size: 16px; font-weight: 650; line-height: 1.5; letter-spacing: -.15px; }
+    .card-description { margin: 6px 0 16px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+    .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 12px; border-top: 1px solid #edf1f6; color: #748297; font-size: 10px; line-height: 1.5; letter-spacing: .4px; font-variant-numeric: tabular-nums; }
+    .format { display: inline-flex; align-items: center; gap: 7px; }
+    .format svg { width: 12px; height: 12px; }
+    .gallery-footnote { display: flex; align-items: center; gap: 7px; margin: 21px 0 0; color: #78869a; font-size: 11px; line-height: 1.7; }
+    .gallery-footnote svg { width: 14px; height: 14px; flex-shrink: 0; }
+.presentation-section .section-heading { margin-bottom: 25px; }
+.ppt-tag { display: inline-block; margin-bottom: 12px; color: var(--blue); font-size: 11px; font-weight: 600; letter-spacing: 1px; }
+.presentation-copy p { max-width: 380px; margin: 12px 0 21px; color: var(--muted); font-size: 13px; line-height: 1.9; }
+.pending-action svg { width: 14px; height: 14px; }
+.ppt-placeholder::before { content: ""; position: absolute; inset: 8px -9px -9px 8px; z-index: 0; border-right: 1px solid #cfddf0; border-bottom: 1px solid #cfddf0; border-bottom-right-radius: 8px; pointer-events: none; }
+.placeholder-title { margin: 0; font-size: 13px; font-weight: 500; }
+.site-footer { padding-block: 25px; background: white; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: #8591a3; font-size: 11px; }
+    .footer-inner p { margin: 0; }
+    .footer-brand { color: #687b94; font-weight: 600; letter-spacing: .3px; }
+    .footer-separator { margin-inline: 10px; color: #c6d0df; }
+    @media (min-width: 1600px) { .wrap { width: min(1360px, calc(100% - 120px)); } }
+    @media (max-width: 1100px) {
+      .wrap { width: calc(100% - 64px); }
+      .hero-inner { gap: 30px; }
+      .hero-copy { padding-left: 26px; }
+      h1 { font-size: 42px; }
+      .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+      .card-body { padding: 18px; }
+.presentation-copy h3 { font-size: 23px; }
+    }
+    @media (max-width: 700px) {
+      .wrap { width: calc(100% - 40px); }
+      .nav { min-height: 68px; gap: 14px; }
+      .wordmark { font-size: 20px; gap: 8px; }
+      .brand-icon { width: 25px; height: 25px; }
+      .nav-links { gap: 20px; font-size: 12px; }
+      .review-label { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 24px; padding-block: 36px 32px; }
+      .eyebrow { margin-bottom: 13px; font-size: 10px; letter-spacing: 1.25px; }
+      h1 { font-size: clamp(30px, 8.6vw, 44px); letter-spacing: -1.5px; }
+      .hero-caption { margin-top: 12px; font-size: 11px; letter-spacing: 1.5px; }
+      .hero-copy { padding-left: 0; border: 0; justify-self: start; }
+      .hero-copy p { margin-bottom: 18px; font-size: 13px; line-height: 1.9; }
+      .hero-copy p br { display: none; }
+      .primary-link { padding: 11px 16px; font-size: 12px; gap: 13px; }
+      .text-link { font-size: 12px; }
+      .hero-actions { gap: 22px; }
+      .gallery-section { padding-block: 32px 36px; }
+      .section-heading { align-items: flex-start; margin-bottom: 20px; }
+      .heading-main { gap: 11px; }
+      h2 { font-size: 23px; }
+      .section-english { font-size: 11px; }
+      .section-note { display: none; }
+      .gallery-toolbar { display: block; margin-bottom: 20px; }
+      .filters { gap: 7px; }
+      .filter { min-height: 42px; padding: 9px 15px; font-size: 12px; }
+      .filter-count { display: none; }
+      .result-count { display: block; margin-top: 16px; font-size: 11px; }
+      .video-grid { grid-template-columns: 1fr; gap: 20px; }
+      .card-body { padding: 17px 18px 14px; }
+      h3 { font-size: 17px; }
+      .card-description { margin-bottom: 14px; }
+      .card-meta { font-size: 11px; }
+      .gallery-footnote { align-items: flex-start; margin-top: 19px; font-size: 11px; }
+      .gallery-footnote svg { margin-top: 2px; }
+.presentation-panel { grid-template-columns: 1fr; gap: 25px; padding: 25px; }
+.presentation-copy p { margin: 10px 0 18px; font-size: 12px; }
+.site-footer { padding-block: 24px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 9px; font-size: 10px; }
+    }
+    @media (max-width: 360px) {
+      .wrap { width: calc(100% - 32px); }
+      .nav-links { gap: 13px; }
+      .filter { padding-inline: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  
+button{cursor:pointer}button:disabled{cursor:default}input,select{font:inherit}
+.video-open{display:block;width:100%;padding:0;border:0;background:none;text-align:inherit;color:inherit}
+.cover{position:relative}.play-icon{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#ffffffeb;color:var(--blue);box-shadow:0 2px 12px #17263d30;font-size:17px;padding-left:3px}
+.video-open:hover .play-icon{background:white;transform:translate(-50%,-50%) scale(1.08)}
+.video-open:disabled .cover{opacity:.86}.cover-badge{position:absolute;right:10px;bottom:10px;padding:4px 8px;background:#132640ba;color:white;font-size:10px;border-radius:4px}
+.card-description{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:40px}.video-card h3{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.more-wrap{text-align:center;margin-top:26px}.secondary-button{padding:11px 20px;background:white;color:var(--blue-dark);border:1px solid #c9dcef;border-radius:7px;font-weight:600;font-size:13px;min-height:44px}
+.secondary-button:hover{background:var(--pale)}.secondary-button:disabled{opacity:.4}
+.library-section{padding:44px 0 54px;background:#f5f9ff;border-block:1px solid var(--line)}
+.library-tools{display:flex;align-items:center;gap:20px;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap}
+.search{width:260px;max-width:100%;min-height:42px;border:1px solid #d8e3f0;border-radius:7px;background:white;padding:10px 13px;font-size:13px;color:var(--ink)}
+.library-status{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-size:12px;margin-bottom:20px;flex-wrap:wrap}
+.check{display:flex;align-items:center;gap:7px;cursor:pointer}.check input{width:16px;height:16px;accent-color:var(--blue)}
+.version-picker{border-top:1px solid var(--line);padding:10px 15px;display:flex;align-items:center;gap:8px;background:#fcfdff;color:var(--muted);font-size:11px}
+.version-picker select{width:100%;min-width:0;border:0;background:transparent;color:#506785;min-height:30px;cursor:pointer}
+.version-picker>span{white-space:nowrap;flex-shrink:0}
+.pagination{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px;font-size:13px;color:#65758a}
+.owner-note{background:#f3f8ff;border:1px solid #d7e8fd;border-radius:7px;padding:12px 15px;color:#52657f;font-size:12px;line-height:1.8;margin-bottom:24px}
+.owner-note a{color:var(--blue-dark);white-space:nowrap}.access-bar{background:#ecf4ff;border-bottom:1px solid #dbe9fa;color:#3d608b;font-size:12px;padding:9px 0}
+.access-inner{display:flex;justify-content:space-between;gap:14px;align-items:center}.session-time{font-variant-numeric:tabular-nums;font-weight:650}
+.error-note{padding:18px;background:#fff8ed;border:1px solid #eddfc6;color:#805c2c;border-radius:7px;line-height:1.8;font-size:13px}
+.expired-panel{max-width:680px;margin:12vh auto;padding:30px;background:#f4f8ff;border:1px solid #dce8f8;border-radius:12px;text-align:center}.expired-panel h2{margin-bottom:16px}.expired-panel p{font-size:14px;line-height:1.8;color:var(--muted)}
+dialog{width:min(1280px,calc(100% - 40px));max-width:none;max-height:calc(100dvh - 40px);padding:0;border:1px solid #d9e6f5;border-radius:12px;background:white;box-shadow:0 24px 100px #081d3f55;color:var(--ink);overflow:auto}
+dialog::backdrop{background:#0d203cbb;backdrop-filter:blur(6px)}body.modal-open{overflow:hidden}
+.modal-head{display:flex;gap:16px;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}.modal-head h3{font-size:16px}.modal-head p{font-size:12px;color:var(--muted);margin:5px 0 0}.modal-actions{display:flex;gap:8px;flex-shrink:0}
+.icon-button{min-width:44px;min-height:44px;border:1px solid #d5e1ee;border-radius:6px;background:white;color:#35597f;font-size:20px;padding:6px 12px}
+.modal-stage{display:flex;justify-content:center;align-items:center;background:#101827;min-height:180px}
+.modal-stage video{display:block;width:100%;max-height:calc(100dvh - 210px);object-fit:contain}
+.modal-bottom{padding:12px 20px;color:var(--muted);font-size:12px;line-height:1.8}.modal-bottom p{margin:0}
+.viewer-shell:fullscreen{width:100vw;height:100dvh;max-height:none;background:white;display:flex;flex-direction:column}.viewer-shell:fullscreen .modal-stage{flex:1;min-height:0}.viewer-shell:fullscreen video{height:100%;width:100%;max-height:calc(100dvh - 160px)}
+@media(max-width:700px){.nav-links{gap:15px;font-size:11px}.wordmark{font-size:19px}.brand-icon{width:24px}.section-english{display:none}.library-section{padding:32px 0}.library-tools{gap:16px}.search{width:100%}.library-status{font-size:11px}.owner-note{font-size:11px}.owner-note a{display:inline-block}.access-inner{font-size:11px}.card-description{min-height:0}.modal-head{padding:12px;gap:8px}.modal-head h3{font-size:14px}.modal-head p{font-size:10px}.modal-actions{gap:5px}.icon-button{min-width:38px;padding:6px 9px}.modal-bottom{padding:12px;font-size:11px}dialog{width:calc(100% - 16px);max-height:calc(100dvh - 20px)}.expired-panel{margin:12vh 20px;padding:24px}.review-label{display:none}.pagination{gap:12px}}
+@media(max-width:360px){.wordmark{font-size:16px}.nav-links{gap:12px}.brand-icon{width:21px}.nav{gap:8px}}
+</style></head>
+<body id="top">
+<a class="skip-link" href="#videos">跳到视频作品</a>
+<header class="site-header"><nav class="nav wrap" aria-label="主导航">
+<a class="wordmark" href="#top"><svg class="brand-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="3" width="28" height="25" rx="6" fill="currentColor"/><path d="M13 10.5 22 15.5 13 21Z" fill="white"/></svg><span>Portfolio<span class="wordmark-dot">.</span></span></a>
+<div class="nav-links"><a href="#videos">精选视频</a><a href="#library">其他视频</a></div><span class="review-label" id="mode-label">个人作品集</span></nav></header>
+<main id="portfolio">
+<section class="hero"><div class="hero-inner wrap"><div><p class="eyebrow" lang="en">Creative advertising · Personal portfolio</p><h1>海外广告<span>作品集</span></h1><p class="hero-caption">故事、产品与影像表达</p></div><div class="hero-copy"><p>从生活故事到产品演示，<br>用画面连接创意与产品价值。</p><div class="hero-actions"><a class="primary-link" href="#videos">浏览精选作品 ↗</a><a class="text-link" href="#library">浏览其他视频 →</a></div></div></div></section>
+<section class="gallery-section wrap" id="videos" aria-labelledby="video-title"><div class="section-heading"><div class="heading-main"><h2 id="video-title">精选视频</h2><span class="section-english" lang="en">Selected films</span></div><p class="section-note">故事叙事 / 产品演示 / 音乐与声音</p></div>
+<p class="error-note" id="load-error" hidden></p>
+<div class="gallery-toolbar"><div class="filters" id="featured-filters" role="group" aria-label="筛选精选视频"></div><span class="result-count" id="result-count" role="status"></span></div>
+<div class="video-grid" id="video-grid"></div><p class="gallery-footnote">点击封面播放完整广告 · 保留原片画幅</p></section>
+<section class="library-section" id="library" aria-labelledby="library-title"><div class="wrap"><div class="section-heading"><div class="heading-main"><h2 id="library-title">其他视频</h2><span class="section-english" lang="en">More films</span></div><p class="section-note">按产品分类 · 更多创意表达</p></div>
+<div class="library-tools"><div class="filters" id="library-filters" role="group" aria-label="筛选其他视频"></div><label><span class="skip-link">搜索作品</span><input class="search" id="search" type="search" placeholder="搜索画面内容或作品编号" aria-label="搜索画面内容或作品编号"></label></div>
+<div class="library-status"><span id="library-count" role="status"></span></div>
+<div class="video-grid" id="library-grid"></div><p id="empty" class="error-note" hidden>没有找到符合条件的作品，请更换筛选条件。</p>
+<div class="pagination"><button class="secondary-button" id="page-prev">← 上一页</button><span id="page-count" role="status"></span><button class="secondary-button" id="page-next">下一页 →</button></div>
+<p class="gallery-footnote" id="library-note">点击封面播放完整广告 · 保留原片画幅</p></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner wrap"><p><span class="footer-brand">个人作品集</span><span class="footer-separator">/</span>仅供招聘预览</p><p id="footer-note">广告创意 · 影像表达</p></div></footer>
+<dialog id="viewer" aria-labelledby="viewer-title"><div class="viewer-shell" id="viewer-shell"><div class="modal-head"><div><h3 id="viewer-title"></h3><p id="viewer-subtitle"></p></div><div class="modal-actions"><button class="icon-button" id="fullscreen" aria-label="全屏查看" title="全屏查看">⛶</button><button class="icon-button" id="close-viewer" aria-label="关闭播放器" title="关闭播放器">×</button></div></div><div class="modal-stage" id="viewer-stage"></div><div class="modal-bottom"><p id="viewer-caption">个人作品集 · 仅供招聘预览</p></div></div></dialog>
+<noscript><p class="error-note wrap">请启用 JavaScript，以浏览分类和播放视频。</p></noscript>
+<script>
+'use strict';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const el=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e};
+const names={DRW:'Data Recovery Wizard',EPM:'Partition Master',EVR:'Vocal Remover',EVW:'VoiceWave'};
+let catalog,byId,featured=[],activeProduct='all',libraryProduct='all',page=1,pageSize=12,restoreFocus;
+const dialog=$('#viewer');
+const duration=n=>Math.floor(n/60).toString().padStart(2,'0')+':'+(n%60).toFixed(2).padStart(5,'0');
+function errorMessage(text){$('#load-error').textContent=text;$('#load-error').hidden=false}
+
+function filterBar(root,items,callback){['all','DRW','EPM','EVR','EVW'].forEach(p=>{const b=el('button','filter',p==='all'?'全部':p);b.dataset.filter=p;b.setAttribute('aria-pressed',String(p==='all'));b.append(el('span','filter-count',String(items.filter(v=>p==='all'||v.product===p).length)));b.onclick=()=>{[...root.children].forEach(s=>s.setAttribute('aria-pressed',String(s===b)));callback(p)};root.append(b)})}
+function card(v,group){const article=el('article','video-card');article.dataset.id=v.id;article.dataset.product=v.product;const btn=el('button','video-open');btn.dataset.play=v.id;btn.disabled=!v.ready;btn.setAttribute('aria-label',(v.ready?'播放 ':'待接入 ')+v.title);
+ const cover=el('div','cover'),img=el('img');img.src=v.cover_url;img.alt=v.title;img.width=1920;img.height=1080;img.loading='lazy';img.decoding='async';cover.append(img);if(v.ready)cover.append(el('span','play-icon','▶'));else cover.append(el('span','cover-badge','待接入'));
+ const body=el('div','card-body'),top=el('div','card-topline');top.append(el('span','product',v.product+' · '+names[v.product]));body.append(top,el('h3','',v.title),el('p','card-description',v.description));
+ const meta=el('div','card-meta');meta.append(el('span','',v.id),el('span','format',duration(v.duration)+' / '+v.ratio));body.append(meta);btn.append(cover,body);btn.onclick=()=>openVideo(v);article.append(btn);
+ if(group&&group.versions.length>1){const label=el('label','version-picker'),select=el('select');select.setAttribute('aria-label',group.title+'：选择同系列视频');label.append(el('span','',group.versions.length+'条'),select);group.versions.forEach(id=>{const s=byId[id],o=el('option','',id+' · '+s.ratio+' · '+duration(s.duration)+(s.ready?'':' · 待接入'));o.value=id;o.selected=id===v.id;select.append(o)});select.onchange=()=>{const replacement=card(byId[select.value],group);article.replaceWith(replacement);replacement.querySelector('select').focus()};article.append(label)}
+ return article}
+
+function renderFeatured(){const shown=featured.filter(v=>activeProduct==='all'||v.product===activeProduct);$('#video-grid').replaceChildren(...shown.map(v=>card(v)));$('#result-count').textContent=shown.length+' 条精选'}
+function filteredGroups(){const q=$('#search').value.trim().toLocaleLowerCase();return catalog.groups.filter(g=>(libraryProduct==='all'||g.product===libraryProduct)&&g.versions.some(id=>{const v=byId[id];return !q||[v.id,v.title,v.description].join(' ').toLocaleLowerCase().includes(q)}))}
+
+function renderLibrary(){const groups=filteredGroups(),total=groups.length,pages=Math.max(1,Math.ceil(total/pageSize));page=Math.min(page,pages);const slice=groups.slice((page-1)*pageSize,page*pageSize);$('#library-grid').replaceChildren(...slice.map(g=>{const id=g.versions.find(id=>byId[id].ready)||g.versions[0];return card(byId[id],g)}));$('#library-count').textContent=total+' 条作品';$('#page-count').textContent=page+' / '+pages;$('#page-prev').disabled=page===1;$('#page-next').disabled=page===pages;$('#empty').hidden=total>0;$('.pagination').hidden=pages<=1}
+
+async function openVideo(v){if(!v.ready)return;restoreFocus=document.activeElement;$('#viewer-title').textContent=v.title;$('#viewer-subtitle').textContent=v.product+' · '+v.id+' · '+duration(v.duration)+' · '+v.ratio;$('#viewer-caption').textContent='Personal Portfolio';const video=el('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.setAttribute('controlsList','nodownload');video.setAttribute('disablepictureinpicture','');video.src=v.preview_url;video.poster=v.cover_url;video.addEventListener('error',()=>{$('#viewer-caption').textContent='视频暂时无法加载，请检查网络连接后重试。'});$('#viewer-stage').replaceChildren(video);document.body.classList.add('modal-open');dialog.showModal();try{await video.play()}catch{}}
+
+async function closeVideo(){const video=$('#viewer-stage video');if(video){video.pause();video.removeAttribute('src');video.load()}if(document.fullscreenElement){try{await document.exitFullscreen()}catch{}}dialog.close();$('#viewer-stage').replaceChildren();document.body.classList.remove('modal-open');if(restoreFocus&&restoreFocus.isConnected)restoreFocus.focus({preventScroll:true})}
+
+$('#search').oninput=()=>{page=1;renderLibrary()};
+function nextPage(delta){page+=delta;renderLibrary();$('#library').scrollIntoView({behavior:'instant',block:'start'})}
+$('#page-prev').onclick=()=>nextPage(-1);$('#page-next').onclick=()=>nextPage(1);
+$('#close-viewer').onclick=closeVideo;dialog.addEventListener('cancel',e=>{e.preventDefault();closeVideo()});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeVideo()}});
+$('#fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await $('#viewer-shell').requestFullscreen()}catch{$('#viewer-caption').textContent='浏览器暂不支持此全屏方式，可使用视频原生全屏按钮。'}};
+async function init(){try{const response=await fetch('./catalog.json');if(!response.ok)throw Error('作品目录暂时无法加载，请刷新后重试。');catalog=await response.json();byId=Object.fromEntries(catalog.videos.map(v=>[v.id,v]));featured=catalog.videos.filter(v=>v.featured_order!==null).sort((a,b)=>a.featured_order-b.featured_order);const other=catalog.groups.flatMap(g=>g.versions.map(id=>byId[id]));filterBar($('#featured-filters'),featured,p=>{activeProduct=p;renderFeatured()});filterBar($('#library-filters'),other,p=>{libraryProduct=p;page=1;renderLibrary()});renderFeatured();renderLibrary();document.documentElement.dataset.ready='true'}catch(e){errorMessage(e.message)}}
+init();
+
+</script></body>
+</html>
