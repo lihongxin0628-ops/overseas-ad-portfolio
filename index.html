@@ -222,9 +222,75 @@ function filteredGroups(){const q=$('#search').value.trim().toLocaleLowerCase();
 
 function renderLibrary(){const groups=filteredGroups(),total=groups.length,pages=Math.max(1,Math.ceil(total/pageSize));page=Math.min(page,pages);const slice=groups.slice((page-1)*pageSize,page*pageSize);$('#library-grid').replaceChildren(...slice.map(g=>{const id=g.versions.find(id=>byId[id].ready)||g.versions[0];return card(byId[id],g)}));$('#library-count').textContent=total+' 条作品';$('#page-count').textContent=page+' / '+pages;$('#page-prev').disabled=page===1;$('#page-next').disabled=page===pages;$('#empty').hidden=total>0;$('.pagination').hidden=pages<=1}
 
-async function openVideo(v){if(!v.ready)return;restoreFocus=document.activeElement;$('#viewer-title').textContent=v.title;$('#viewer-subtitle').textContent=v.product+' · '+v.id+' · '+duration(v.duration)+' · '+v.ratio;$('#viewer-caption').textContent='Personal Portfolio';const video=el('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.setAttribute('controlsList','nodownload');video.setAttribute('disablepictureinpicture','');video.src=v.preview_url;video.poster=v.cover_url;video.addEventListener('error',()=>{$('#viewer-caption').textContent='视频暂时无法加载，请检查网络连接后重试。'});$('#viewer-stage').replaceChildren(video);document.body.classList.add('modal-open');dialog.showModal();try{await video.play()}catch{}}
+// Only retry a stalled media session; healthy playback keeps the original URL and buffer.
+let activePlayback;
+function watchPlayback(video, source){
+ const listeners=new AbortController();
+ let disposed=false,retries=0,wantsPlay=true,restoring=false,position=0,settings;
+ let lastTime=0,lastProgress=performance.now(),blockedSince=0,finished=false;
+ const caption=text=>{if(!disposed)$('#viewer-caption').textContent=text};
+ const on=(name,fn)=>video.addEventListener(name,fn,{signal:listeners.signal});
+ const progress=()=>{lastProgress=performance.now()};
+ const markBlocked=()=>{if(!blockedSince)blockedSince=performance.now()};
+ function play(){
+  if(disposed||!wantsPlay)return;
+  const attempt=video.play();
+  if(attempt)attempt.catch(error=>{
+   if(disposed||error.name==='AbortError')return;
+   if(error.name==='NotAllowedError'){wantsPlay=false;caption('点击视频中的播放按钮继续。')}
+  });
+ }
+ function retry(){
+  if(disposed||finished||video.ended)return;
+  if(retries>=2){
+   finished=true;caption('网络响应较慢，请稍后关闭播放器重新打开，或切换网络重试。');return;
+  }
+  if(!restoring)position=video.currentTime||0;
+  settings={volume:video.volume,muted:video.muted,rate:video.playbackRate};
+  restoring=true;retries++;blockedSince=performance.now();progress();
+  const url=new URL(source,document.baseURI);
+  url.searchParams.set('retry',Date.now()+'-'+retries);
+  caption('网络响应较慢，正在重新连接并恢复进度…');
+  video.src=url.href;video.load();video.volume=settings.volume;video.muted=settings.muted;video.playbackRate=settings.rate;
+ }
+ on('play',()=>{wantsPlay=true;finished=false;markBlocked()});
+ on('pause',()=>{if(!restoring||video.readyState>0)wantsPlay=false});
+ on('waiting',markBlocked);on('stalled',markBlocked);
+ on('progress',progress);
+ on('seeking',()=>{position=video.currentTime;blockedSince=performance.now();progress()});
+ on('timeupdate',()=>{
+  if(video.seeking||restoring)return;
+  if(Math.abs(video.currentTime-lastTime)>.01){lastTime=video.currentTime;position=lastTime;progress();blockedSince=0;caption('Personal Portfolio')}
+ });
+ on('playing',()=>{progress();blockedSince=0;caption('Personal Portfolio')});
+ on('loadedmetadata',()=>{
+  progress();
+  if(!restoring)return;
+  video.volume=settings.volume;video.muted=settings.muted;video.playbackRate=settings.rate;
+  const target=Math.max(0,Math.min(position,video.duration-.05));
+  if(target>.05){video.currentTime=target}else{restoring=false;play()}
+ });
+ on('seeked',()=>{restoring=false;progress();blockedSince=0;caption('Personal Portfolio');play()});
+ on('canplay',()=>{if(!restoring){progress();play()}});
+ on('ended',()=>{wantsPlay=false;restoring=false;blockedSince=0;caption('Personal Portfolio')});
+ on('error',()=>{
+  if(video.error?.code===3||video.error?.code===4){finished=true;caption('浏览器暂时无法解码此视频，请更换浏览器后重试。')}
+  else{markBlocked();retry()}
+ });
+ const timer=setInterval(()=>{
+  if(disposed||finished||video.ended||document.hidden)return;
+  const blocked=restoring||video.seeking||(wantsPlay&&(video.readyState<3||blockedSince));
+  if(!blocked)return;
+  markBlocked();
+  // Download progress extends the deadline, avoiding interruptions on a slow but working link.
+  const timeout=retries===0?12000:20000;
+  if(performance.now()-Math.max(lastProgress,blockedSince)>timeout)retry();
+ },500);
+ return {play,dispose(){disposed=true;clearInterval(timer);listeners.abort();video.pause();video.removeAttribute('src');video.load()}};
+}
+async function openVideo(v){if(!v.ready)return;activePlayback?.dispose();restoreFocus=document.activeElement;$('#viewer-title').textContent=v.title;$('#viewer-subtitle').textContent=v.product+' · '+v.id+' · '+duration(v.duration)+' · '+v.ratio;$('#viewer-caption').textContent='Personal Portfolio';const video=el('video');video.controls=true;video.playsInline=true;video.preload='auto';video.setAttribute('controlsList','nodownload');video.setAttribute('disablepictureinpicture','');video.poster=v.cover_url;activePlayback=watchPlayback(video,v.preview_url);video.src=v.preview_url;$('#viewer-stage').replaceChildren(video);document.body.classList.add('modal-open');if(!dialog.open)dialog.showModal();activePlayback.play()}
 
-async function closeVideo(){const video=$('#viewer-stage video');if(video){video.pause();video.removeAttribute('src');video.load()}if(document.fullscreenElement){try{await document.exitFullscreen()}catch{}}dialog.close();$('#viewer-stage').replaceChildren();document.body.classList.remove('modal-open');if(restoreFocus&&restoreFocus.isConnected)restoreFocus.focus({preventScroll:true})}
+async function closeVideo(){activePlayback?.dispose();activePlayback=null;if(document.fullscreenElement){try{await document.exitFullscreen()}catch{}}dialog.close();$('#viewer-stage').replaceChildren();document.body.classList.remove('modal-open');if(restoreFocus&&restoreFocus.isConnected)restoreFocus.focus({preventScroll:true})}
 
 $('#search').oninput=()=>{page=1;renderLibrary()};
 function nextPage(delta){page+=delta;renderLibrary();$('#library').scrollIntoView({behavior:'instant',block:'start'})}
